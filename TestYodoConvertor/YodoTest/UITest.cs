@@ -10,17 +10,6 @@ namespace YodoTest
     [TestClass]
     public class UITest
     {
-       
-        
-        //UITest()
-        //{
-            
-        //    var applicationDirectory = TestContext.TestDeploymentDir;
-        //    //var applicationPath = Path.Combine(Server, "foo.exe");
-        //    //Application application = Application.Launch(applicationPath);
-        //    //Window window = application.GetWindow("bar", InitializeOption.NoCache);
-        //    string n = "a";
-        //}
         [TestMethod]
         public void Test_TextBox_IsEmpty_And_Button_Is_Disable()
         {
@@ -65,7 +54,7 @@ namespace YodoTest
             var applicationPath = Path.Combine(applicationDirectory, "TestYodoConvertor.exe");
             using (var application = TestStack.White.Application.Launch(applicationPath))
             {
-                string result = "Going to home, I am.";
+                string result = "Sorry. Yodo service is down.";
                
                 var testYodo = application.GetWindow("Yodo Speak Convertor", TestStack.White.Factory.InitializeOption.NoCache);
                 var btnConvert = testYodo.Get<Button>("btnConvert");
@@ -75,7 +64,7 @@ namespace YodoTest
                 btnConvert.Click();
                 do { }
                 while (string.IsNullOrEmpty(lblOutput.Text));
-                Assert.AreEqual(result, lblOutput.Text);
+                Assert.AreNotEqual(result, lblOutput.Text);
                 application.Close();
             }
         }
