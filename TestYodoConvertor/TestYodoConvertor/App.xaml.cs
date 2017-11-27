@@ -23,7 +23,8 @@ namespace TestYodoConvertor
             ComposeObjects();
             Current.MainWindow.Show();
         }
-
+        
+        //Dependancy Injection of Convertor Service
         private void ConfigureContainer()
         {
             this.container = new StandardKernel();
