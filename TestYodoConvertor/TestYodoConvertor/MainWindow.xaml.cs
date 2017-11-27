@@ -23,6 +23,7 @@ namespace TestYodoConvertor
         private readonly IConvertorService convertorService;
         public MainWindow(IConvertorService convertorService)
         {
+            //Dependancy Injection in Constructor
             this.convertorService = convertorService;
             InitializeComponent();
         }
@@ -30,6 +31,7 @@ namespace TestYodoConvertor
         private async void btnConvert_Click(object sender, RoutedEventArgs e)
         {
             lblOutput.Content = string.Empty;
+            //Calling Convertor service and show result in Lable
             lblOutput.Content = await convertorService.ConvertEnglishToYodoSpeak(txtInput.Text);
         }
     }
